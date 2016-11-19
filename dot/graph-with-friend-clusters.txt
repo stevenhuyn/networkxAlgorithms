@@ -1,0 +1,36 @@
+graph {
+"Amy" ;
+"James" ;
+"Kate" ;
+"Jess" ;
+"Ben" ;
+"Liz" ;
+"Emma" ;
+"Mary" ;
+"Pat" ;
+"Jo" ;
+"Dan" ;
+"Bob" ;
+"Cathy" ;
+"Ryan" ;
+"Tom" ;
+"Ed" ;
+"Meg" ;
+
+"Amy" -- "Ryan";
+"James" -- "Ryan";
+"Kate" -- "Cathy";
+"Jess" -- "Cathy";
+"Ben" -- "Liz";
+"Liz" -- "Dan";
+"Liz" -- "Meg";
+"Liz" -- "Bob";
+"Emma" -- "Mary";
+"Emma" -- "Jo";
+"Emma" -- "Meg";
+"Emma" -- "Pat";
+"Cathy" -- "Ed";
+"Cathy" -- "Meg";
+"Ryan" -- "Tom";
+"Ryan" -- "Meg";
+}
