@@ -1,0 +1,24 @@
+graph {
+"Sue" ;
+"Chris" ;
+"Nat" ;
+"Matt" ;
+"Mike" ;
+"Tom" ;
+"Meg" ;
+"Sam" ;
+"Jack" ;
+"Adam" ;
+"Jess" ;
+
+"Sue" -- "Tom";
+"Sue" -- "Chris";
+"Chris" -- "Nat";
+"Nat" -- "Meg";
+"Matt" -- "Adam";
+"Matt" -- "Sam";
+"Mike" -- "Sam";
+"Mike" -- "Jack";
+"Tom" -- "Jess";
+"Meg" -- "Adam";
+}
