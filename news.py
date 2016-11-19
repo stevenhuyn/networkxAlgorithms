@@ -1,5 +1,5 @@
 from edgy import *
-import os
+import glob
 
 def stepFig(G, pos):
     numNodes = G.number_of_nodes()
@@ -36,8 +36,8 @@ def stepFig(G, pos):
             yield True
 
 if __name__ == '__main__':
-    pylab.ion()
-    files = [f for f in os.listdir('.') if f.endswith('.txt')]
+    print(glob.glob(".\dot\*.txt"))
+    files = [f for f in glob.glob(".\dot\*.txt")]
     for file in files:
         # By defualt read_dot gives a multigraph which has weird edge accessing shit
         G = nx.Graph(nx.drawing.nx_pydot.read_dot(file))
