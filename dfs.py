@@ -2,14 +2,6 @@ from edgy import *
 import glob
 import random
 
-def generate(n):
-    G = nx.ladder_graph(n)
-
-    for first, second, data in G.edges(data=True):
-        data['weight'] = random.randint(1, 10)
-
-    return G
-
 def dfs(G, pos):
     visited = deque()
     for startNode in G.nodes():
@@ -21,18 +13,21 @@ def dfs(G, pos):
             visited.popleft()
             G.node[look]['color'] = 'red'
             yield True
+            
             newNeigh = [ neigh for neigh in G.neighbors(look)
-                                 if G.node[neigh]['color'] != 'green' and G.node[neigh]['color'] != 'red']
+                         if G.node[neigh]['color'] != 'green'
+                         and G.node[neigh]['color'] != 'red']
             for neigh in newNeigh:
                 G.node[neigh]['color'] = 'green'
+                yield True
+                
             visited.extendleft(newNeigh) # Important
-            yield True
             G.node[look]['color'] = 'green'
             
 
 if __name__ == '__main__':
-    for file in [f for f in glob.glob(".\dot\*.txt")]:
-        G = generate(6)
+    while True:
+        G = nx.dorogovtsev_goltsev_mendes_graph(3)
         position = nx.spring_layout(G)
         for step in dfs(G, position):
             show(G, setPos=position)
