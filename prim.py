@@ -50,10 +50,10 @@ def prim(G, pos):
 
 if __name__ == '__main__':
     while True:
-        G = generate(4)
+        G = generate(10)
         position = nx.shell_layout(G)
         for keepGoing in prim(G, position):
             show(G, edge_attribute='weight', setPos=position, labelPos=0.4)
             # Matplotlib implmentation of pausing graph
-            pylab.pause(0.1)
-            pylab.cla()
+            pylab.pause(0.001)
+            pylab.clf()
