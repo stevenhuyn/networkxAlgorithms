@@ -1,6 +1,4 @@
 from edgy import *
-import glob
-import random
 
 def dfs(G, pos):
     visited = deque()

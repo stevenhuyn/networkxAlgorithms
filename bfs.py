@@ -1,6 +1,4 @@
 from edgy import *
-import glob
-import random
 
 def generate(n):
     G = nx.ladder_graph(n)
