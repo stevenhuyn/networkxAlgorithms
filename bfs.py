@@ -1,13 +1,5 @@
 from edgy import *
 
-def generate(n):
-    G = nx.ladder_graph(n)
-
-    for first, second, data in G.edges(data=True):
-        data['weight'] = random.randint(1, 10)
-
-    return G
-
 def bfs(G, pos):
     visited = deque()
     for startNode in G.nodes():
