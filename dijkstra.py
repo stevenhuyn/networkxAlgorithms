@@ -3,7 +3,7 @@ import random
 from itertools import combinations
 
 def generate(n):
-    G = nx.ladder_graph(n)
+    G = nx.grid_graph([n, n])
 
     for first, second, data in G.edges(data=True):
         data['weight'] = random.randint(1, 10)
@@ -39,8 +39,8 @@ def dij(G, pos):
         Bottom is to just use the algo to find shortest path and also
         assumes that the destination node is reachable.
         """
-        while unvisited != []:
-##        while u != destNode:    
+##        while unvisited != []:
+        while u != destNode:    
             for v in G.neighbors(u):
                 alt = G.node[u]['tentative'] + G.edge[u][v]['weight']
                 G.edge[u][v]['color'] = 'red'
@@ -98,7 +98,7 @@ def dij(G, pos):
     yield None
         
 if __name__ == '__main__':
-    G = generate(6)
+    G = generate(4)
     print(nx.info(G))
     position = nx.spring_layout(G)
     for step in dij(G, position):
