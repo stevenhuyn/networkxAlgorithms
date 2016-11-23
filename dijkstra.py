@@ -104,7 +104,7 @@ def showAllSteps(G, position):
         if step:   
             pylab.cla()
         elif not step:
-            pylab.pause(1)
+            pylab.pause(0)
             pylab.cla()
         else:
             break
@@ -114,13 +114,14 @@ def showPathOnly(G, position):
         if step:   
             continue
         else:
-            pylab.pause(0.5)
+            pylab.pause(0.1)
             pylab.cla()
         show(G, setPos=position, edge_attribute='weight', labelPos=0.4)
 
 if __name__ == '__main__':
-    G = generate(5)
-    position = nx.spring_layout(G)
-    showPathOnly(G, position)
-##    showAllSteps(G, position)
+    while True:
+        G = generate(5)
+        position = nx.spring_layout(G)
+        showPathOnly(G, position)
+    ##    showAllSteps(G, position)
 
