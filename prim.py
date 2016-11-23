@@ -6,7 +6,7 @@ def generate(n):
     Generate a complete graph with n nodes
     """
 
-    G = nx.gnp_random_graph(n, random.randint(1, 100))
+    G = nx.grid_graph([n, n])
 
     for first, second, data in G.edges(data=True):
         data['weight'] = random.randint(1, 10)
@@ -50,8 +50,8 @@ def prim(G, pos):
 
 if __name__ == '__main__':
     while True:
-        G = generate(10)
-        position = nx.shell_layout(G)
+        G = generate(5)
+        position = nx.spring_layout(G)
         for keepGoing in prim(G, position):
             show(G, edge_attribute='weight', setPos=position, labelPos=0.4)
             # Matplotlib implmentation of pausing graph

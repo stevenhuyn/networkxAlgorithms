@@ -96,11 +96,8 @@ def dij(G, pos):
         yield False
 
     yield None
-        
-if __name__ == '__main__':
-    G = generate(4)
-    print(nx.info(G))
-    position = nx.spring_layout(G)
+
+def showAllSteps(G, position):
     for step in dij(G, position):
         show(G, setPos=position, edge_attribute='weight', labelPos=0.4)
         pylab.pause(0.00001)
@@ -111,3 +108,19 @@ if __name__ == '__main__':
             pylab.cla()
         else:
             break
+
+def showPathOnly(G, position):
+    for step in dij(G, position):
+        if step:   
+            continue
+        else:
+            pylab.pause(0.5)
+            pylab.cla()
+        show(G, setPos=position, edge_attribute='weight', labelPos=0.4)
+
+if __name__ == '__main__':
+    G = generate(5)
+    position = nx.spring_layout(G)
+    showPathOnly(G, position)
+##    showAllSteps(G, position)
+
