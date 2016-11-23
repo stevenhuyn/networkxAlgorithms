@@ -103,7 +103,7 @@ if __name__ == '__main__':
     position = nx.spring_layout(G)
     for step in dij(G, position):
         show(G, setPos=position, edge_attribute='weight', labelPos=0.4)
-        pylab.pause(0.1)
+        pylab.pause(0.00001)
         if step:   
             pylab.cla()
         elif not step:
