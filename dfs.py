@@ -1,6 +1,18 @@
 from edgy import *
 
 def dfs(G, pos):
+    """
+    Depth first search
+
+    Input params
+    G:      Nx Graph
+    pos:    Set positions of the nodes
+
+    Graph legend
+    red:    Currently searching
+    blue:   Already searched
+    green:  Neighbour, not searched yet
+    """
     visited = deque()
     for startNode in G.nodes():
         nx.set_node_attributes(G, 'color', 'white')
@@ -32,7 +44,7 @@ if __name__ == '__main__':
         for step in dfs(G, position):
             show(G, setPos=position)
             if step:
-                pylab.pause(0.1)
+                pylab.pause(0.01)
             else:
                 pylab.pause(1)
             pylab.clf()

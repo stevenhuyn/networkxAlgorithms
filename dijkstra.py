@@ -120,8 +120,8 @@ def showPathOnly(G, position):
 
 if __name__ == '__main__':
     while True:
-        G = generate(5)
+        G = generate(4)
         position = nx.spring_layout(G)
-        showPathOnly(G, position)
-    ##    showAllSteps(G, position)
+##        showPathOnly(G, position)
+        showAllSteps(G, position)
 

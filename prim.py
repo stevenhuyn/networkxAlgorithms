@@ -49,11 +49,15 @@ def prim(G, pos):
     yield False
 
 if __name__ == '__main__':
+    i = 0
     while True:
-        G = generate(5)
+        G = generate(4)
         position = nx.spring_layout(G)
         for keepGoing in prim(G, position):
+            i += 1
             show(G, edge_attribute='weight', setPos=position, labelPos=0.4)
+            pylab.savefig('frame' + str(i) + '.png')
+            
             # Matplotlib implmentation of pausing graph
             pylab.pause(0.001)
             pylab.clf()
